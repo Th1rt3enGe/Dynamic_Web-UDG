@@ -40,8 +40,12 @@ export default function Contacto() {
   const validar = () => {
     const nuevosErrores = {}
     if (!formulario.nombre.trim()) nuevosErrores.nombre = 'Escribe tu nombre completo.'
+    if (!formulario.sexo) nuevosErrores.sexo = 'Selecciona un sexo.'
+    if (!formulario.telefono.trim()) nuevosErrores.telefono = 'Escribe un telefono.'
+    else if (!/^(?:\+52\s?)?(?:\d{2}\s?\d{4}\s?\d{4})$/.test(formulario.telefono)) nuevosErrores.telefono = 'El teléfono no parece válido.'
     if (!formulario.correo.trim()) nuevosErrores.correo = 'Escribe un correo electrónico.'
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formulario.correo)) nuevosErrores.correo = 'El correo no parece válido.'
+    if (!formulario.intereses?.length) nuevosErrores.intereses = 'Selecciona algún interés.'
     if (!formulario.aceptaTerminos) nuevosErrores.aceptaTerminos = 'Debes aceptar las condiciones de uso.'
     return nuevosErrores
   }
@@ -115,6 +119,7 @@ export default function Contacto() {
                 </label>
               ))}
             </div>
+            {errores.sexo && <p id="error-sexo" className="mt-1 text-xs text-rose-300">{errores.sexo}</p>}
           </fieldset>
 
           <div>
@@ -129,6 +134,7 @@ export default function Contacto() {
               className="mt-2 w-full border border-sky-100/20 bg-transparent px-4 py-3 text-sky-100 outline-none focus:border-sky-400"
               placeholder="+52 55 0000 0000"
             />
+            {errores.telefono && <p id="error-telefono" className="mt-1 text-xs text-rose-300">{errores.telefono}</p>}
           </div>
 
           <div className="sm:col-span-2">
@@ -169,6 +175,7 @@ export default function Contacto() {
               </label>
             ))}
           </div>
+          {errores.intereses && <p id="error-intereses" className="mt-1 text-xs text-rose-300">{errores.intereses}</p>}
         </fieldset>
 
         <div>
