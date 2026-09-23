@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Science+Gothic:opsz,wght@9..144,100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -10,13 +11,13 @@ html {
 }
 
 body {
-  background-color: #020617; /* slate-950 */
-  color: #e0f2fe; /* sky-100-ish */
-  font-family: var(--font-sans);
+  background-color: #020617;
+  color: #e0f2fe;
+  font-family: var(--font-sans), sans-serif;
   font-optical-sizing: auto;
 }
 
-/* Reusable region utility: a soft frosted top border used across sections */
+/* Reusable region utility - top border */
 .region-divider {
   border-top: 1px solid rgba(191, 219, 254, 0.1);
 }
@@ -27,7 +28,7 @@ body {
   outline-offset: 2px;
 }
 
-/* Custom scrollbar to match the polar theme */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }

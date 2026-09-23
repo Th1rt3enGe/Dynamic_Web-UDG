@@ -1,0 +1,11 @@
+{
+  "name": "terra-glacialis/novedades",
+  "description": "Back-end PHP para la sección de Novedades de Terra Glacialis",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Model\\": "./models",
+      "Classes\\": "./classes"
+    }
+  }
+}
