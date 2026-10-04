@@ -1,0 +1,87 @@
+/*
+Theme Name: Terra_Glacialis
+Description: Child theme for the site.
+Author: Oliver Loza
+Template: generatepress
+Version: 1.0.0
+Text Domain: terra-glacialis-child
+*/
+
+@import url("../generatepress/style.css");
+
+:root {
+    --base: #0b1220;
+    --base-2: #020617;
+    --base-3: #0b1220;
+    --contrast: #e0f2fe;
+    --contrast-2: #93c5e8;
+    --contrast-3: #4b6478;
+    --accent: #38bdf8;
+}
+
+body {
+    font-family: "Science Gothic", "Segoe UI", system-ui, sans-serif !important;
+    font-optical-sizing: auto;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Science Gothic", "Segoe UI", system-ui, sans-serif;
+    font-weight: 300;
+}
+
+.main-navigation .menu-item > a {
+    text-decoration: none !important;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
+.content-area { width: 100% !important; }
+.widget-area.sidebar { display: none !important; }
+
+/* ---- Reusable utility classes ---- */
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+.eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--accent);
+}
+
+.card {
+    border: 1px solid var(--contrast-3);
+    padding: 1.5rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent) !important;
+    color: var(--base-2) !important;
+    padding: 0.9rem 2rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    text-decoration: none !important;
+}
+.btn-secondary {
+    display: inline-block;
+    border: 1px solid var(--contrast-3);
+    color: var(--contrast) !important;
+    padding: 0.9rem 2rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-decoration: none !important;
+}
+
+.section-divider { border-top: 1px solid var(--contrast-3); padding-top: 3rem; }
