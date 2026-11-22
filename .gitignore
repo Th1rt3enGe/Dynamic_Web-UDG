@@ -4,7 +4,7 @@ wp-content/cache/
 *.log
 node_modules/
 dist/
-vendor/
+/vendor/
 .idea/
 
 *.sql
