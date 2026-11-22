@@ -1,0 +1,6 @@
+.git
+.idea
+node_modules
+*.sql
+wp-admin
+wp-includes
