@@ -1,10 +1,8 @@
 # Terra Glacialis — WordPress en Railway (rama `wordpress`)
 # Imagen oficial de WordPress + el wp-content del repo (tema, plugins, uploads).
-# Si la versión de WP de la imagen es menor que la de tu sitio local (7.1.2), fija la etiqueta.
 FROM wordpress:php8.3-apache
 
-# Apache solo admite un MPM. Con PHP como módulo debe ser prefork:
-# se eliminan event/worker y se deja prefork activo.
+# Apache solo admite un MPM; con PHP como módulo debe ser prefork.
 RUN rm -f /etc/apache2/mods-enabled/mpm_event.load \
           /etc/apache2/mods-enabled/mpm_event.conf \
           /etc/apache2/mods-enabled/mpm_worker.load \
@@ -16,5 +14,9 @@ RUN rm -f /etc/apache2/mods-enabled/mpm_event.load \
 COPY wp-content/ /usr/src/wordpress/wp-content/
 COPY docker/uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
-# Railway enruta al puerto definido en la variable PORT (ponla en 80).
+# Script de arranque (se quitan los saltos de línea de Windows por si acaso).
+COPY docker/start.sh /usr/local/bin/tg-start.sh
+RUN sed -i 's/\r$//' /usr/local/bin/tg-start.sh && chmod +x /usr/local/bin/tg-start.sh
+
+ENTRYPOINT ["/usr/local/bin/tg-start.sh"]
 EXPOSE 80
